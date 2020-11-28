@@ -1,0 +1,20 @@
+<h1>Mes posts (<%= link_to "New", new_post_path %>)</h1>
+<br />
+<table>
+<% @posts.each do |post| %>
+    <tr>
+        <td><%= raw post.published ? "<b>Published!</b>" : "&nbsp;" %></td>
+        <td>
+            <%= post.title %>
+        </td>
+        <td>
+            <% if post.published %>
+                <%= link_to 'Unpublish', unpublish_post_path(post) %>
+            <% else %>
+                <%= link_to 'Publish', publish_post_path(post) %>
+            <% end %>
+            <%= link_to "edit", edit_post_path(post) %>
+        </td>
+    </tr>
+<% end %>
+</table>

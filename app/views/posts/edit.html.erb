@@ -1,0 +1,13 @@
+<%= form_for(@post) do |f| %>
+  <%= f.label(:title) %>
+  <%= @post.errors[:title].join('<br />') %>
+  <br/>
+  <%= f.text_field(:title) %>
+  <br />
+  <%= f.label(:body) %>
+  <%= @post.errors[:body].join('<br />') %>
+  <br/>
+  <%= f.text_area(:body, rows: 20, cols:100) %>
+  <br />
+  <%= submit_tag("Modifier") %>
+<% end %>
